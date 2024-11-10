@@ -3,7 +3,7 @@ import React from "react";
 import { Stack, SplashScreen } from "expo-router";
 import useFont from "@/hooks/useFont";
 import { ActivityIndicator, View } from "react-native";
-
+import AuthProvider from "@/providers/useAuthProvider";
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
@@ -19,10 +19,17 @@ const RootLayout = () => {
     );
   }
   return (
-    <Stack>
-      <Stack.Screen name="index" options={{ headerShown: false }} />
-      <Stack.Screen name="helper" options={{ headerShown: false }} />
-    </Stack>
+    <AuthProvider>
+      <Stack>
+        <Stack.Screen name="index" options={{ headerShown: false }} />
+        <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="search/[searchQuery]"
+          options={{ headerShown: false }}
+        />
+      </Stack>
+    </AuthProvider>
   );
 };
 

@@ -1,11 +1,30 @@
-import { View, Text } from "react-native";
-import React from "react";
+import { Stack } from "expo-router";
+import { StatusBar } from "expo-status-bar";
+
+// import { Loader } from "../../components";
+// import { useGlobalContext } from "../../context/GlobalProvider";
 
 const AuthLayout = () => {
   return (
-    <View>
-      <Text>AuthLayout</Text>
-    </View>
+    <>
+      <Stack>
+        <Stack.Screen
+          name="sign-in/index"
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="sign-up/index"
+          options={{
+            headerShown: false,
+          }}
+        />
+      </Stack>
+
+      {/* <Loader isLoading={loading} /> */}
+      <StatusBar backgroundColor="#161622" style="light" />
+    </>
   );
 };
 

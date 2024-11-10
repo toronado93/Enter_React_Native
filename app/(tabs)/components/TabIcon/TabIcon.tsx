@@ -27,7 +27,10 @@ const TabIcon: React.FunctionComponent<ITabIcon> = ({
         resizeMode="contain"
         className="w-6 h-6"
       />
-      <Text className={`${focused ? "text-white" : ""} text-xs font-pregular`}>
+      <Text
+        className={`${focused ? "font-psemibold" : "font-pregular"} text-xs`}
+        style={{ color: color }}
+      >
         {name}
       </Text>
     </View>
